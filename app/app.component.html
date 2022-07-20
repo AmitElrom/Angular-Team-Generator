@@ -2,8 +2,7 @@
   <div class="ui card">
     <h1>Team Generator</h1>
     <ul class="list">
-      <li>Laith Harb</li>
-      <li>Vincent Gatho</li>
+      <li *ngFor="let member of members">{{ member }}</li>
     </ul>
     <div class="add-members-container">
       <input
@@ -11,12 +10,23 @@
         placeholder="Name"
         #memberName
         (change)="saveMember(memberName.value)"
+        [value]="newMemberName"
       />
       <button (click)="addMember()">Add</button>
     </div>
     <div class="input-container">
-      <input type="text" placeholder="#of teams" />
-      <button>Generate</button>
+      <input
+        type="number"
+        placeholder="#of teams"
+        #teamsNumberInput
+        (input)="saveTeamsNumber(+teamsNumberInput.value)"
+        [value]="teamsNumber"
+      />
+      <button (click)="generateTeams()">Generate</button>
     </div>
+    <!-- option 1 -->
+    <div class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</div>
+    <!-- option 2 -->
+    <!-- <div class="error-msg" *ngIf="isError">Name can't be empty</div> -->
   </div>
 </div>
