@@ -55,7 +55,6 @@ export class AppComponent {
         }
       }
       this.teamsNumber = "";
-      console.log(this.teams);
     } else if (this.teamsNumber > this.members.length) {
       this.errorMsg =
         "Number of teams must be bigger or equal to number of members.";
