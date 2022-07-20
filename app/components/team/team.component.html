@@ -1,0 +1,8 @@
+<div class="team">
+  <h3>Team {{ index + 1 }}</h3>
+  <ul>
+    <app-member *ngFor="let member of team" [member]="member">{{
+      member
+    }}</app-member>
+  </ul>
+</div>

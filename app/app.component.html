@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ui card">
     <h1>Team Generator</h1>
-    <ul class="list">
+    <ul class="list-members">
       <li *ngFor="let member of members">{{ member }}</li>
     </ul>
     <div class="add-members-container">
@@ -22,11 +22,20 @@
         (input)="saveTeamsNumber(+teamsNumberInput.value)"
         [value]="teamsNumber"
       />
-      <button (click)="generateTeams()">Generate</button>
+      <button (click)="generateTeams()" class="generate-button">
+        Generate
+      </button>
     </div>
     <!-- option 1 -->
     <div class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</div>
     <!-- option 2 -->
     <!-- <div class="error-msg" *ngIf="isError">Name can't be empty</div> -->
+    <div *ngIf="teams.length > 0" class="teams-container">
+      <app-team
+        *ngFor="let team of teams; let i = index"
+        [team]="team"
+        [index]="i"
+      ></app-team>
+    </div>
   </div>
 </div>
