@@ -2,7 +2,7 @@
   <div class="ui card">
     <h1>Team Generator</h1>
     <ul class="list-members">
-      <li *ngFor="let member of members">{{ member }}</li>
+      <li *ngFor="let member of members">{{ member | titlecase }}</li>
     </ul>
     <div class="add-members-container">
       <input
